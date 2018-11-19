@@ -1,2 +1,86 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div class="navigation">
+      <nav class="nav has-shadow">
+	<div class="container">
+	  <!-- nav site title -->
+	  <div class="nav-left">
+	    <a class="nav-item" href="/">
+	      <h3 class="title is-3" style="color: white;">SIMPLE BLOG</h3>
+	    </a>
+	  </div>
+	  <!-- end of site title -->
+
+	  <!-- this "nav-toggle" hamburger menu is only visible on mobile -->
+	  <span class="nav-toggle">
+	    <span></span>
+	    <span></span>
+	    <span></span>
+	  </span>
+	  <!-- end of toggle -->
+
+	  <!-- this "nav-menu" is hidden on mobile -->
+	  <div class="nav-right nav-menu">
+	    <a class="nav-item is-tab" href="/">
+	      Home
+	    </a>
+	    <a class="nav-item is-tab is-active" href="/posts">
+	      My Post
+	    </a>
+	    <%= form_tag destroy_user_session_path, method: :delete do %>
+	    <a class="nav-item is-tab" href="#">
+	      Logout
+	    </a>
+	    <% end %>
+	  </div>
+	  <!-- end of nav -->
+	</div>
+      </nav>
+    </div>
+
+    <div class="main-header">
+      <section class="hero">
+	<div class="hero-body">
+	  <div class="container">
+	    <div class="has-text-centered">
+	      <!-- header &&subheader -->
+	      <h1 class="title is-1 is-spaced">TITLE</h1>
+	      <!-- end of header && subheader -->
+	      
+	      <!-- header nav content -->
+	      <!-- end of header nav content -->
+	    </div>
+	  </div>
+	</div>
+      </section>
+    </div>
+    <br>
+
+    <div class="container">
+    	<div class="column">
+    		<div class="has-text-right">
+    			<a class="button is-dark" href="/posts/new">Add Post</a>
+    		</div>
+    	</div>
+    </div>
+
+	<div class="container">
+		<div class="has-text-centered">
+			<table class="table is-striped">
+  				<thead>
+    				<tr is-selected>
+      				<th>Title</th>
+      				<th>Created At</th>
+      				<th>Update At</th>
+      				<th>Action</th>
+    				</tr>
+  				</thead>
+  				<tbody>
+    				<tr is-selected>
+      				<td></td>
+      				<td></td>
+      				<td></td>
+      				<td></td>
+    				</tr>
+  				</tbody>
+			</table>
+		</div>
+	</div>
