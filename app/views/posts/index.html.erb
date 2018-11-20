@@ -80,7 +80,9 @@
       				<td><%= p.title %></td>
       				<td><%= p.created_at %></td>
       				<td><%= p.updated_at %></td>
-      				<td></td>
+      				<td>
+      					<a class="button is-primary is-outlined" href="<%= "/posts/#{p.id}/edit"%>">Edit</a>
+      				</td>
     				</tr>
   				</tbody>
   				<% end %>
