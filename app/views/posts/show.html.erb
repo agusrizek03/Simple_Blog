@@ -29,11 +29,12 @@
 	    <a class="nav-item is-tab is-active" href="/posts">
 	      My Post
 	    </a>
-	    <%= form_tag destroy_user_session_path, method: :delete do %>
-	    <a class="nav-item is-tab" href="#">
-	      Logout
-	    </a>
-	    <% end %>
+	    <p class="nav-item is-tab">
+					<% if user_signed_in? %>
+					<strong><%= current_user.email %></strong>|
+  			<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  			<% end %>
+  			</p>
 	  </div>
 	  <!-- end of nav -->
 	</div>

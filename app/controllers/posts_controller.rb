@@ -3,9 +3,6 @@ class PostsController < ApplicationController
     @post = current_user.posts.all
   end
 
-  def show
-  end
-
   def new
     @post = Post.new
   end
