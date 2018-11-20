@@ -25,11 +25,12 @@
 	    <a class="nav-item is-tab is-active" href="/posts">
 	      My Post
 	    </a>
-	    <%= form_tag destroy_user_session_path, method: :delete do %>
-	    <a class="nav-item is-tab" href="#">
-	      Logout
-	    </a>
-	    <% end %>
+	    <p class="nav-item is-tab">
+					<% if user_signed_in? %>
+					<strong><%= current_user.email %></strong>|
+  			<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  			<% end %>
+  			</p>
 	  </div>
 	  <!-- end of nav -->
 	</div>
@@ -75,12 +76,14 @@
   				</thead>
   				<tbody>
     				<tr is-selected>
-      				<td></td>
-      				<td></td>
-      				<td></td>
+    				<% @post.each do |p| %>
+      				<td><%= p.title %></td>
+      				<td><%= p.created_at %></td>
+      				<td><%= p.updated_at %></td>
       				<td></td>
     				</tr>
   				</tbody>
+  				<% end %>
 			</table>
 		</div>
 	</div>
