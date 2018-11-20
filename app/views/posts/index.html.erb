@@ -82,6 +82,9 @@
       				<td><%= p.updated_at %></td>
       				<td>
       					<a class="button is-primary is-outlined" href="<%= "/posts/#{p.id}/edit"%>">Edit</a>
+      					<p class="button is-danger">
+      					<%= link_to 'Delete', p, method: :delete, data: {confirm: "Are You Sure?"} %>
+      					</p>
       				</td>
     				</tr>
   				</tbody>
