@@ -56,7 +56,7 @@
     <br>
 
     <div class="container">
-    <%= form_for @post do |f| %>
+    <%= form_for @post, {multipart: true} do |f| %>
     	<div class="has-text-centered"></div>
     	<div class="field">
   		<label class="label">Title</label>
@@ -72,9 +72,16 @@
   			</div>
 		</div>
 
+		<div class="field">
+  		<label class="label">Photo</label>
+  			<div class="control">
+    		<%= f.file_field :photo_files, {class: 'file', multiple: true} %>
+  			</div>
+		</div>
+
 		<div class="field is-grouped">
   			<div class="control">
-    		<button class="button is-dark">Submit</button>
+    		<button class="button is-dark">Create</button>
   			</div>
 		</div>
 		<% end %>

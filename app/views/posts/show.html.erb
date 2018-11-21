@@ -40,9 +40,7 @@
 	</div>
       </nav>
     </div>
-    <!-- end navigation -->
 
-    <!-- page header (title, etc) -->
     <div class="main-header">
       <section class="hero">
 	<div class="hero-body">
@@ -72,8 +70,10 @@
 	      <!-- image for post -->
 	      <div class="card-image">
 		<figure class="image">
-		  <img src="http://placehold.it/800x500" alt="Image">
+		  <% @post.images.each do |i| %>
+		  <%= image_tag i.photo.url %>
 		</figure>
+		<% end %>
 	      </div>
 	      <!-- end of image for post -->
 

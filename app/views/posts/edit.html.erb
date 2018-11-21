@@ -72,9 +72,31 @@
   			</div>
 		</div>
 
+		<div class="field">
+  		<label class="label">Photo</label>
+  			<div class="control">
+    		<%= f.file_field :photo_files, {class: 'file', multiple: true} %>
+  			</div>
+		</div>
+		<br>
+		<div class="columns">
+        <% @post.images.each do |i| %>
+            <div class="coloumn">
+            	<div class="box">
+            	<figure class="image is-128x128">
+            		<%= image_tag i.photo.url %>
+            	</figure>
+            	</div>
+            </div>
+            <% end %>
+      	</p>
+        </div>
+        <br>
+        <br>
+
 		<div class="field is-grouped">
   			<div class="control">
-    		<button class="button is-dark">Submit</button>
+    		<button class="button is-dark">Update</button>
   			</div>
 		</div>
 		<% end %>

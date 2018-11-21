@@ -38,15 +38,17 @@
   </div>
 
   <% @post.each do |p| %>
-  <div class="main-content">
+  <div class="main-content is-fullheight">
    <div class="container">
    	<div class="columns is-multiline is-centered has-text-centered">
-   		<div class="column is-4">
+   		<div class="column is-4-desktop">
 	    	<div class="card">
 	      <div class="card-image">
 							<figure class="image is-4by3">
-		  			<img src="http://placehold.it/700x500" alt="Image">
+		  			<% if p.images.first %>
+		  			<%= image_tag p.images.first.photo.url %>
 							</figure>
+							<% end %>
 	      </div>
 	     <div class="card-content-header">
 						<h4 class="title is-4"><a href="<%= "/posts/#{p.id}" %>"><%= p.title %></a></h4>
@@ -64,15 +66,10 @@
 	     </div>
 	    </div>
 	  	</div>
-	  	<% end %>
 	  	</div>
 	  </div>
+	  <% end %>
 	  </div>
-	 </div>
-	 </div>
-	 </div>
-		</div>
-  </div>
   
   <div class="pagination-style-custom">
 			<div class="container has-text-centered">
