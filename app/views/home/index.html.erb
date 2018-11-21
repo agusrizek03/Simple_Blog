@@ -1,128 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <body>
-    <!-- navigation -->
-    <div class="navigation">
-      <nav class="nav has-shadow">
-	<div class="container">
-	  <!-- nav site title -->
-	  <div class="nav-left">
-	    <a class="nav-item" href="/">
-	      <h3 class="title is-3" style="color: white;">SIMPLE BLOG</h3>
-	    </a>
-	  </div>
-	  <!-- end of site title -->
+ <body>
+  <div class="navigation">
+   <nav class="nav has-shadow">
+				<div class="container">
+	  		<div class="nav-left">
+	    	<a class="nav-item" href="/">
+	     <h3 class="title is-3" style="color: white;">SIMPLE BLOG</h3>
+	    	</a>
+	  		</div>
 
-	  <!-- this "nav-toggle" hamburger menu is only visible on mobile -->
-	  <span class="nav-toggle">
-	    <span></span>
-	    <span></span>
-	    <span></span>
-	  </span>
-	  <!-- end of toggle -->
-
-	  <!-- this "nav-menu" is hidden on mobile -->
-	  <div class="nav-right nav-menu">
-	    <a class="nav-item is-tab is-active" href="/">
-	      Home
-	    </a>
-	    <a class="nav-item is-tab" href="/posts">
-	      My Post
-	    </a>
-	    <p class="nav-item is-tab">
-					<% if user_signed_in? %>
-					<strong><%= current_user.email %></strong>|
-  			<%= link_to "Logout", destroy_user_session_path, method: :delete %>
-  			<% end %>
-  			</p>
-	  </div>
-	  <!-- end of nav -->
-	</div>
-      </nav>
-    </div>
-    <!-- end navigation -->
-
-    <!-- page header (title, etc) -->
-    <div class="main-header">
-      <section class="hero">
-	<div class="hero-body">
-	  <div class="container">
-	    <div class="has-text-centered">
-	      <!-- header && subheader -->
+	  		<div class="nav-right nav-menu">
+	    	<a class="nav-item is-tab is-active" href="/">Home</a>
+	    	<a class="nav-item is-tab" href="/posts">My Post</a>
+	    	<p class="nav-item is-tab">
+						<% if user_signed_in? %>
+						<strong><%= current_user.email %></strong>|
+  				<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  				<% end %>
+  				</p>
+	  		</div>
+				</div>
+   </nav>
+  </div>
+    
+  <div class="main-header">
+  	<section class="hero">
+					<div class="hero-body">
+	  			<div class="container">
+	    		<div class="has-text-centered">
 	      <h1 class="title is-1 is-spaced">HOME POST</h1>
-	      <!-- end of header && subheader -->
-	      
-	      <!-- header nav content -->
-	      <div class="nav-center">
-	      </div>
-	      <!-- end of header nav content -->
-	    </div>
-	  </div>
-	</div>
-      </section>
-    </div>
-    <!-- end page header -->
+	      	<div class="nav-center"></div>
+	    		</div>
+	  			</div>
+					</div>
+   </section>
+  </div>
 
-    <!-- page content -->
-    <% @post.each do |p| %>
-    <div class="main-content">
-      <div class="container">
-	<!-- start of posts -->
-	<div class="columns is-multiline is-centered has-text-centered">
-	  <!-- start of post -->
-	  <div class="column is-4">
-	    <div class="card">
-	      <!-- image for post -->
+  <% @post.each do |p| %>
+  <div class="main-content">
+   <div class="container">
+   	<div class="columns is-multiline is-centered has-text-centered">
+   		<div class="column is-4">
+	    	<div class="card">
 	      <div class="card-image">
-		<figure class="image is-4by3">
-		  <img src="http://placehold.it/700x500" alt="Image">
-		</figure>
+							<figure class="image is-4by3">
+		  			<img src="http://placehold.it/700x500" alt="Image">
+							</figure>
 	      </div>
-	      <!-- end of image for post -->
-	      
-	      <!-- post header -->
-	      <div class="card-content-header">
-		<h4 class="title is-4"><a href="<%= "/posts/#{p.id}" %>"><%= p.title %></a></h4>
-	      </div>
-	      <div class="card-content">
-		<div class="content">
+	     <div class="card-content-header">
+						<h4 class="title is-4"><a href="<%= "/posts/#{p.id}" %>"><%= p.title %></a></h4>
+	     </div>
+	    	<div class="card-content">
+							<div class="content"></div>
+							<div class="card-content-footer">
+		  				<i class="fa fa-calendar">
+		    		<small><%= p.updated_at %></small>
+		  				</i>
+		  				<i class="fa fa-comment">
+		    		<small>20 comments</small>
+		  				</i>
+							</div>
+	     </div>
+	    </div>
+	  	</div>
+	  	<% end %>
+	  	</div>
+	  </div>
+	  </div>
+	 </div>
+	 </div>
+	 </div>
 		</div>
-		<div class="card-content-footer">
-		  <i class="fa fa-calendar">
-		    <small><%= p.updated_at %></small>
-		  </i>
-		  <i class="fa fa-comment">
-		    <small>20 comments</small>
-		  </i>
-		</div>
-	      </div>
-	    </div>
-	  </div>
-	  <% end %>
-	      </div>
-	    </div>
-	  </div>
-	      </div>
-	    </div>
-	  </div>
-	  <!-- end of post -->
-	</div>
-	<!-- end of posts -->	
-      </div>
-      
-      <!-- pagination -->
-      <div class="pagination-style-custom">
-	<div class="container has-text-centered">
-	  <a class="button is-button-grey pagination-next">Show More Posts</a>
-	</div>
-      </div>
-      <!-- end of pagination -->
-    </div>
-    <!-- end of page content -->
+  </div>
+  
+  <div class="pagination-style-custom">
+			<div class="container has-text-centered">
+	  	<a class="button is-button-grey pagination-next">Show More Posts</a>
+				</div>
+   </div>
+   </div>
+   
+   <div class="footer footer-top-shadow"></div>
 
-    <!-- footer: will stick to the bottom -->
-    <div class="footer footer-top-shadow">
-    </div>
-    <!-- end of footer -->
-  </body>
+ </body>
 </html>
