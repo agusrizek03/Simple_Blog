@@ -29,11 +29,12 @@
 	    <a class="nav-item is-tab" href="/posts">
 	      My Post
 	    </a>
-	    <%= form_tag destroy_user_session_path, method: :delete do %>
-	    <a class="nav-item is-tab" href="#">
-	      Logout
-	    </a>
-	    <% end %>
+	    <p class="nav-item is-tab">
+					<% if user_signed_in? %>
+					<strong><%= current_user.email %></strong>|
+  			<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  			<% end %>
+  			</p>
 	  </div>
 	  <!-- end of nav -->
 	</div>
@@ -63,6 +64,7 @@
     <!-- end page header -->
 
     <!-- page content -->
+    <% @post.each do |p| %>
     <div class="main-content">
       <div class="container">
 	<!-- start of posts -->
@@ -80,102 +82,26 @@
 	      
 	      <!-- post header -->
 	      <div class="card-content-header">
-		<h4 class="title is-4"><a href="/posts/show">Header for Post</a></h4>
+		<h4 class="title is-4"><a href="<%= "/posts/#{p.id}" %>"><%= p.title %></a></h4>
 	      </div>
-	      <!-- end of post header -->
-	      
-	      <!-- post content -->
 	      <div class="card-content">
 		<div class="content">
 		</div>
-		<!-- end of post content -->
-
-		<!-- post footer -->
 		<div class="card-content-footer">
 		  <i class="fa fa-calendar">
-		    <small>11:09 PM - 1 Jan 2016</small>
+		    <small><%= p.updated_at %></small>
 		  </i>
 		  <i class="fa fa-comment">
 		    <small>20 comments</small>
 		  </i>
 		</div>
-		<!-- end of post footer -->
 	      </div>
 	    </div>
 	  </div>
-	  <!-- end of post -->
-
-	  <!-- start of post -->
-	  <div class="column is-4">
-	    <div class="card">
-	      <!-- image for post -->
-	      <div class="card-image">
-		<figure class="image is-4by3">
-		  <img src="http://placehold.it/700x500" alt="Image">
-		</figure>
-	      </div>
-	      <!-- end of image for post -->
-	      
-	      <!-- post header -->
-	      <div class="card-content-header">
-		<h4 class="title is-4"><a href="/posts/show">Header for Post</a></h4>
-	      </div>
-	      <!-- end of post header -->
-	      
-	      <!-- post content -->
-	      <div class="card-content">
-		<div class="content">
-		</div>
-		<!-- end of post content -->
-
-		<!-- post footer -->
-		<div class="card-content-footer">
-		  <i class="fa fa-calendar">
-		    <small>11:09 PM - 1 Jan 2016</small>
-		  </i>
-		  <i class="fa fa-comment">
-		    <small>20 comments</small>
-		  </i>
-		</div>
-		<!-- end of post footer -->
+	  <% end %>
 	      </div>
 	    </div>
 	  </div>
-	  <!-- end of post -->
-
-	  <!-- start of post -->
-	  <div class="column is-4">
-	    <div class="card">
-	      <!-- image for post -->
-	      <div class="card-image">
-		<figure class="image is-4by3">
-		  <img src="http://placehold.it/700x500" alt="Image">
-		</figure>
-	      </div>
-	      <!-- end of image for post -->
-	      
-	      <!-- post header -->
-	      <div class="card-content-header">
-		<h4 class="title is-4"><a href="/posts/show">Header for Post</a></h4>
-	      </div>
-	      <!-- end of post header -->
-	      
-	      <!-- post content -->
-	      <div class="card-content">
-		<div class="content">
-		</div>
-		<!-- end of post content -->
-
-		<!-- post footer -->
-		<div class="card-content-footer">
-		  <i class="fa fa-calendar">
-		    <small>11:09 PM - 1 Jan 2016</small>
-		  </i>
-		  <i class="fa fa-comment">
-		    <small>20 comments</small>
-		  </i>
-		</div>
-		<!-- end of post footer -->
 	      </div>
 	    </div>
 	  </div>
