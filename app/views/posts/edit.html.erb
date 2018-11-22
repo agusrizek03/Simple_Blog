@@ -56,7 +56,7 @@
     <br>
 
     <div class="container">
-    <%= form_for @post do |f| %>
+    <%= form_for @post, {multipart: true} do |f| %>
     	<div class="has-text-centered"></div>
     	<div class="field">
   		<label class="label">Title</label>
@@ -85,6 +85,7 @@
             	<div class="box">
             	<figure class="image is-128x128">
             		<%= image_tag i.photo.url %>
+            		<%= link_to 'Delete', i, method: :delete, data: {confirm: "Are You Sure?"} %>
             	</figure>
             	</div>
             </div>
