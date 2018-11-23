@@ -26,7 +26,7 @@
     
   <div class="main-header">
   	<section class="hero">
-					<div class="hero-body  is-fullheight">
+					<div class="hero-body is-fullheight">
 	  			<div class="container">
 	    		<div class="has-text-centered">
 	      <h1 class="title is-1 is-spaced">HOME POST</h1>
@@ -37,48 +37,38 @@
    </section>
   </div>
 
-  <% @post.each do |p| %>
   <div class="main-content is-fullheight">
    <div class="container">
    	<div class="columns is-multiline is-centered has-text-centered">
+   	<% @post.each do |p| %>
    		<div class="column is-4-desktop">
 	    	<div class="card">
 	      <div class="card-image">
-							<figure class="image is-4by3">
-		  			<% if p.images.first %>
-		  			<%= image_tag p.images.first.photo.url %>
-							</figure>
-							<% end %>
+								<figure class="image is-4by3">
+		  					<% if p.images.first %>
+		  					<%= image_tag p.images.first.photo.url %>
+								</figure>
+								<% end %>
 	      </div>
-	     <div class="card-content-header">
-						<h4 class="title is-4"><a href="<%= "/posts/#{p.id}" %>"><%= p.title %></a></h4>
-	     </div>
-	    	<div class="card-content">
-							<div class="content"></div>
-							<div class="card-content-footer">
-		  				<i class="fa fa-calendar">
-		    		<small><%= p.updated_at %></small>
-		  				</i>
-		  				<i class="fa fa-comment">
-		    		<small>20 comments</small>
-		  				</i>
-							</div>
-	     </div>
-	    </div>
-	  	</div>
+	     	<div class="card-content-header">
+							<h4 class="title is-4"><a href="<%= "/posts/#{p.id}" %>"><%= p.title %></a></h4>
+	     	</div>
+	    		<div class="card-content">
+								<div class="card-content-footer">
+		  					<i class="fa fa-calendar">
+		    				<small><%= p.updated_at %></small>
+		  					</i>
+		  					<i class="fa fa-comment">
+		    				<small>20 comments</small>
+		  					</i>
+								</div>
+	     	</div>
+	    	</div>
+	  		</div>
+	  		<% end %>
 	  	</div>
 	  </div>
-	  <% end %>
-	  </div>
-  
-  <div class="pagination-style-custom">
-			<div class="container has-text-centered">
-	  	<a class="button is-button-grey pagination-next">Show More Posts</a>
-				</div>
-   </div>
-   </div>
-   
-   <div class="footer footer-top-shadow"></div>
+	 </div>
 
  </body>
 </html>
