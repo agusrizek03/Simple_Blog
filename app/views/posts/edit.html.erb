@@ -1,2 +1,104 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<div class="navigation">
+      <nav class="nav has-shadow">
+	<div class="container">
+	  <!-- nav site title -->
+	  <div class="nav-left">
+	    <a class="nav-item" href="/">
+	      <h3 class="title is-3" style="color: white;">SIMPLE BLOG</h3>
+	    </a>
+	  </div>
+	  <!-- end of site title -->
+
+	  <!-- this "nav-toggle" hamburger menu is only visible on mobile -->
+	  <span class="nav-toggle">
+	    <span></span>
+	    <span></span>
+	    <span></span>
+	  </span>
+	  <!-- end of toggle -->
+
+	  <!-- this "nav-menu" is hidden on mobile -->
+	  <div class="nav-right nav-menu">
+	    <a class="nav-item is-tab" href="/">
+	      Home
+	    </a>
+	    <a class="nav-item is-tab is-active" href="/posts">
+	      My Post
+	    </a>
+	    <p class="nav-item is-tab">
+		<% if user_signed_in? %>
+		<strong><%= current_user.email %></strong>|
+  			<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  			<% end %>
+  			</p>
+	  </div>
+	  <!-- end of nav -->
+	</div>
+      </nav>
+    </div>
+
+    <div class="main-header">
+      <section class="hero">
+	<div class="hero-body">
+	  <div class="container">
+	    <div class="has-text-centered">
+	      <!-- header &&subheader -->
+	      <h1 class="title is-1 is-spaced">TITLE</h1>
+	      <!-- end of header && subheader -->
+	      
+	      <!-- header nav content -->
+	      <!-- end of header nav content -->
+	    </div>
+	  </div>
+	</div>
+      </section>
+    </div>
+    <br>
+
+    <div class="container">
+    <%= form_for @post, {multipart: true} do |f| %>
+    	<div class="has-text-centered"></div>
+    	<div class="field">
+  		<label class="label">Title</label>
+  			<div class="control">
+    		<%= f.text_field :title, {class: 'input'}%>
+  			</div>
+		</div>
+
+		<div class="field">
+  		<label class="label">Body</label>
+  			<div class="control">
+    		<%= f.text_area :body, {class: 'textarea'} %>
+  			</div>
+		</div>
+
+		<div class="field">
+  		<label class="label">Photo</label>
+  			<div class="control">
+    		<%= f.file_field :photo_files, {class: 'file', multiple: true} %>
+  			</div>
+		</div>
+		<br>
+		<div class="columns">
+        <% @post.images.each do |i| %>
+            <div class="coloumn">
+            	<div class="box">
+            	<figure class="image is-128x128">
+            		<%= image_tag i.photo.url %>
+            		<%= link_to 'Delete', i, method: :delete, data: {confirm: "Are You Sure?"} %>
+            	</figure>
+            	</div>
+            </div>
+            <% end %>
+      	</p>
+        </div>
+        <br>
+        <br>
+
+		<div class="field is-grouped">
+  			<div class="control">
+    		<button class="button is-dark">Update</button>
+  			</div>
+		</div>
+		<% end %>
+	</div>

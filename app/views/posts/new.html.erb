@@ -25,11 +25,12 @@
 	    <a class="nav-item is-tab is-active" href="/posts">
 	      My Post
 	    </a>
-	    <%= form_tag destroy_user_session_path, method: :delete do %>
-	    <a class="nav-item is-tab" href="#">
-	      Logout
-	    </a>
-	    <% end %>
+	    <p class="nav-item is-tab">
+		<% if user_signed_in? %>
+		<strong><%= current_user.email %></strong>|
+  			<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  			<% end %>
+  			</p>
 	  </div>
 	  <!-- end of nav -->
 	</div>
@@ -55,24 +56,33 @@
     <br>
 
     <div class="container">
+    <%= form_for @post, {multipart: true} do |f| %>
     	<div class="has-text-centered"></div>
     	<div class="field">
   		<label class="label">Title</label>
   			<div class="control">
-    		<input class="input" type="text" placeholder="Title">
+    		<%= f.text_field :title, {class: 'input'}%>
   			</div>
 		</div>
 
 		<div class="field">
   		<label class="label">Body</label>
   			<div class="control">
-    		<textarea class="textarea" placeholder="Description"></textarea>
+    		<%= f.text_area :body, {class: 'textarea'} %>
+  			</div>
+		</div>
+
+		<div class="field">
+  		<label class="label">Photo</label>
+  			<div class="control">
+    		<%= f.file_field :photo_files, {class: 'file', multiple: true} %>
   			</div>
 		</div>
 
 		<div class="field is-grouped">
   			<div class="control">
-    		<button class="button is-dark">Submit</button>
+    		<button class="button is-dark">Create</button>
   			</div>
 		</div>
+		<% end %>
 	</div>
