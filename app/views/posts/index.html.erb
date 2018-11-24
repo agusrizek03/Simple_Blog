@@ -64,31 +64,29 @@
     </div>
 
 	<div class="container">
-		<div class="has-text-centered">
-			<table class="table is-striped">
-  				<thead>
-    				<tr is-selected>
-      				<th>Title</th>
-      				<th>Created At</th>
-      				<th>Update At</th>
-      				<th>Action</th>
-    				</tr>
-  				</thead>
-  				<tbody>
-    				<tr is-selected>
-    				<% @post.each do |p| %>
-      				<td><a href="<%= "/posts/#{p.id}" %>"><%= p.title %></td>
-      				<td><%= p.created_at %></td>
-      				<td><%= p.updated_at %></td>
-      				<td>
-      					<a class="button is-primary is-outlined" href="<%= "/posts/#{p.id}/edit"%>">Edit</a>
-      					<p class="button is-danger is-outlined">
-      					<%= link_to 'Delete', p, method: :delete, data: {confirm: "Are You Sure?"} %>
-      					</p>
-      				</td>
-    				</tr>
-  				</tbody>
-  				<% end %>
+		<table class="table is-striped">
+  	<thead>
+    <tr>
+    	<th>Title</th>
+    	<th>Created At</th>
+     <th>Update At</th>
+     <th>Action</th>
+    </tr>
+  	</thead>
+  		<tbody>
+    	<tr>
+    	<% @post.each do |p| %>
+      <td><a href="<%= "/posts/#{p.id}" %>"><%= p.title %></td>
+      <td><%= p.created_at %></td>
+      <td><%= p.updated_at %></td>
+      <td>
+      	<a class="button is-primary is-outlined" href="<%= "/posts/#{p.id}/edit"%>">Edit</a>
+      	<p class="button is-danger is-outlined">
+      	<%= link_to 'Delete', p, method: :delete, data: {confirm: "Are You Sure?"} %>
+      	</p>
+      </td>
+    	</tr>
+  		</tbody>
+  		<% end %>
 			</table>
-		</div>
 	</div>
