@@ -100,21 +100,24 @@
 	      
 	     	<div class="comments-wrapper">
 								<div class="comments-content">
+
 		  					<article class="media">
+		    			<% @post.comments.each do |c| %>
 		    				<div class="media-content">
 		      			<div class="content">
 												<p>
-			  							<strong>Barbara Middleton</strong>
-												<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.</p>
+			  							<strong><%= c.user.email %></strong>
+												<p><%= c.comment %></p>
 												</p>
 
 		      				<article class="media"></article>
+		      				<% end %>
 
 		    						<div class="media-content">
+		    							<%= form_for ([@post, @post.comments.build]) do |f| %>
 		      					<div class="field">
 														<p class="control">
-			  										<textarea class="textarea" placeholder="Add a comment...">
-			  										</textarea>
+			  										<%= f.text_area :comment, class: "textarea", placeholder: "Add a comment..." %>
 														</p>
 		      					</div>
 		      					<div class="field">
@@ -123,6 +126,7 @@
 			  										</button>
 														</p>
 		      					</div>
+		      					<% end %>
 		    						</div>
 		    					</div>
 		    				</div>
