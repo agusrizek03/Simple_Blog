@@ -79,15 +79,15 @@
   			</div>
 		</div>
 		<br>
-		<div class="columns">
+		<div class="columns is-gapless">
         <% @post.images.each do |i| %>
-            <div class="coloumn">
+            <div class="coloumn has-text-centered">
             	<div class="box">
             	<figure class="image is-128x128">
             		<%= image_tag i.photo.url %>
-            		<%= link_to 'Delete', i, method: :delete, data: {confirm: "Are You Sure?"} %>
             	</figure>
             	</div>
+            	<%= link_to 'Delete', [i.post, i], method: :delete, data: {confirm: "Are You Sure?"} %>
             </div>
             <% end %>
       	</p>
